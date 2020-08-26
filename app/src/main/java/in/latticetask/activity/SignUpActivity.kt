@@ -23,14 +23,16 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.submitBtn.setOnClickListener {
 
-            validate()
+            if(!validate()){
+                return@setOnClickListener
+            }
 
             val appViewModel = ViewModelProvider(this).get(AppViewModel::class.java)
             val user = User(
                 binding.userNameEdt.text.toString(),
                 binding.userAddressEdt.text.toString(),
                 binding.userEmailEdt.text.toString(),
-                "+91 + ${binding.userPhoneEdt.text.toString()}",
+                "+91${binding.userPhoneEdt.text}",
                 binding.userPasswordEdt.text.toString()
             )
             appViewModel.addUser(user)
@@ -40,7 +42,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun validate() {
+    private fun validate() : Boolean {
 
         binding.errorMsg.visibility = View.VISIBLE
 
@@ -48,69 +50,76 @@ class SignUpActivity : AppCompatActivity() {
 
         if (binding.userNameEdt.text.toString().isEmpty()) {
             binding.errorMsg.text = (("* Enter your name"))
-            return
+            return false
         }
 
         if (binding.userNameEdt.text.toString().length < 4) {
             binding.errorMsg.text = (("* Name should be at least 4 char. long"))
-            return
+             return false
         }
 
         // User Address
 
         if (binding.userAddressEdt.text.toString().isEmpty()) {
             binding.errorMsg.text = (("* Enter your address"))
-            return
+            return false
         }
 
         if (binding.userAddressEdt.text.toString().length < 10) {
             binding.errorMsg.text = (("* Address should be at least 10 char. long"))
-            return
+            return false
         }
 
         // User Email Address
 
         if (binding.userEmailEdt.text.toString().isEmpty()) {
             binding.errorMsg.text = (("* Enter your email-id"))
-            return
+            return false
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(binding.userEmailEdt.text.toString()).matches()) {
             binding.errorMsg.text = (("* Enter valid email address"))
-            return
+            return false
         }
 
         // User Mobile No.
 
         if (binding.userPhoneEdt.text.toString().isEmpty()) {
             binding.errorMsg.text = (("* Enter your mobile no."))
-            return
+            return false
         }
 
         if (binding.userPhoneEdt.text.toString().length < 10) {
             binding.errorMsg.text = (("* Mobile no. should be at least 10 char. long"))
-            return
+            return false
         }
 
         // User Password
 
         if (binding.userPhoneEdt.text.toString().isEmpty()) {
             binding.errorMsg.text = (("* Enter your mobile no."))
-            return
+            return false
         }
 
         if (binding.userPhoneEdt.text.toString().length < 8) {
             binding.errorMsg.text = (("* Password must be at least 8 char long"))
-            return
+            return false
+        }
+
+        if (binding.userPhoneEdt.text.toString().length > 15) {
+            binding.errorMsg.text = (("* Password must be at lesser than 15 char."))
+            return false
         }
 
         if (!AppUtils.isValidPassword(binding.userPasswordEdt.text.toString())) {
             binding.errorMsg.text =
                 (("* Password must contain 1 upper character, 1 lower character and a number"))
-            return
+            return false
         }
 
         binding.errorMsg.visibility = View.GONE
+
+        return true
 
     }
 }
