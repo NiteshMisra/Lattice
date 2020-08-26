@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.SignUpActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Sign Up"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="15dp"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/errorMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="Sign Up"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/userNameEdt"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="UserName"
+                    android:textColorHint="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/userAddressEdt"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Address"
+                    android:textColorHint="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/userEmailEdt"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Email Id"
+                    android:textColorHint="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="+91"
+                        android:textSize="15sp"
+                        android:textColor="#000000"
+                        android:padding="12dp"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/userPhoneEdt"
+                        android:layout_width="match_parent"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:hint="Mobile No."
+                        android:textColorHint="#000000"
+                        android:textSize="14sp"
+                        android:textColor="#000000"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/userPasswordEdt"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="Password"
+                    android:maxLength="15"
+                    android:textColorHint="#000000"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitBtn"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:padding="12dp"
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Submit"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</layout>
