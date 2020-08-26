@@ -30,7 +30,7 @@ class SignUpActivity : AppCompatActivity() {
                 binding.userNameEdt.text.toString(),
                 binding.userAddressEdt.text.toString(),
                 binding.userEmailEdt.text.toString(),
-                binding.userPhoneEdt.text.toString(),
+                "+91 + ${binding.userPhoneEdt.text.toString()}",
                 binding.userPasswordEdt.text.toString()
             )
             appViewModel.addUser(user)
